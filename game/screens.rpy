@@ -256,7 +256,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+default quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
@@ -289,14 +289,6 @@ screen navigation():
         if main_menu:
 
             textbutton _("开始游戏") action Start()
-
-        else:
-
-            textbutton _("历史") action ShowMenu("history")
-
-            textbutton _("保存") action ShowMenu("save")
-
-        textbutton _("读取游戏") action ShowMenu("load")
 
         textbutton _("设置") action ShowMenu("preferences")
 

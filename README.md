@@ -2,7 +2,7 @@
 
 > 基于[RenPyUtil](https://github.com/ZYKsslm/RenPyUtil).ren_communicator模块制作
 > 
-> **[游戏内图标，背景图片等](./game/images)均来自于互联网，未经允许不可商用**
+> **[游戏内图标，背景图片等](./game/images)均来自于互联网**
 >
 > Ren'Py关联文件遵循Ren'Py相关协议
 

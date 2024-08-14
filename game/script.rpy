@@ -1,68 +1,30 @@
-﻿# 确保回到标题前关闭连接
-label before_main_menu:
-    python:
-        try:
-            if server.has_communicated:
-                server.close()
-            if client.has_communicated:
-                client.close()
-        except:
-            pass
-    return
+﻿define config.rollback_enabled = False
+define config.save = False
 
-# 确保退出前关闭连接
-label quit:
-    python:
-        try:
-            if server.has_communicated:
-                server.close()
-            if client.has_communicated:
-                client.close()
 
-        except:
-            pass
-    return
-
- 
 # 开始游戏
 label start:
-    if not hasattr(persistent, "bg"):
-        default persistent.bg = ""
 
-    python:
-        msg_dict = {}
-        dialog = load_dialog()
-        if dialog:
-            msg_dict.update(dialog)
-        socket_dict = {None: None}
-        current_chat = None
+    window hide
+    show screen bg
 
     menu:
         "请选择模式"
 
-        "服务端":
+        "服务器":
             python:
-                server = RenServer()    
-                server.run()
-                server.set_conn_event(server_conn_handler)
-                server.set_receive_event(receive_handler)
-                server.set_disconn_event(disconn_handler)
-
-            call screen chat("server")
+                with store.server:
+                    store.mode = "server"
+                    renpy.call_screen("chat")
 
         "客户端":
             python:
-                ip = renpy.input("请输入ip地址")
-                port = int(renpy.input("请输入端口号"))
-                client = RenClient(ip, port)
-                client.set_conn_event(client_conn_handler)
-                client.set_receive_event(receive_handler)
-                client.set_disconn_event(disconn_handler)
-                msg_dict[ip] = []
-                socket_dict[ip] = client.socket
-                client.run()
-                    
-            call screen chat("client")
+                ip = renpy.input("请输入服务器ip地址")
+                port = int(renpy.input("请输入服务器端口号"))
+                
+                with store.client.set_target(ip, port):
+                    store.mode = "client"
+                    renpy.call_screen("chat")
 
     return
     

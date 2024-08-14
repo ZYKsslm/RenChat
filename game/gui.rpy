@@ -56,13 +56,13 @@ define gui.interface_text_color = '#ffffff'
 ## 字体和字体大小 #####################################################################
 
 ## 游戏内文本使用的字体。
-define gui.text_font = "loli.ttf"
+define gui.text_font = "lolita.ttf"
 
 ## 角色名称使用的字体。
-define gui.name_text_font = "loli.ttf"
+define gui.name_text_font = "lolita.ttf"
 
 ## 游戏外文本使用的字体。
-define gui.interface_text_font = "loli.ttf"
+define gui.interface_text_font = "lolita.ttf"
 
 ## 普通对话文本的大小。
 define gui.text_size = 33
@@ -86,8 +86,8 @@ define gui.title_text_size = 75
 ## 标题和游戏菜单 #####################################################################
 
 ## 标题菜单和游戏菜单使用的图像。
-define gui.main_menu_background = "gui/main_menu.png"
-define gui.game_menu_background = "gui/game_menu.png"
+define gui.main_menu_background = None
+define gui.game_menu_background = None
 
 
 ## 对话 ##########################################################################
