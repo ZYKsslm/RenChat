@@ -3,3 +3,4 @@
 *.rpymc
 saves
 cache
+/.vscode
